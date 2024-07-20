@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Expense Tracker</h1>
+            </div>
+        </header>
+        
+        <aside id="sidebar" class="sidebar">
+            <nav>
+                <ul>
+                    <li><button id="nav-expense-tracker">Expense Tracker</button></li>
+                    <li><button id="nav-charts">Charts</button></li>
+                    <li><button id="nav-recurring-expenses">Recurring Expenses</button></li>
+                    <li><button id="nav-budgeting">Budgeting</button></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <section id="main-overview" class="content">
+                <div class="overview-content">
+                    <h2>Expense Tracker</h2>
+                    <div class="overview-text">
+                        <p id="typing-text">Welcome to the Expense Tracker! This tool helps you manage and track your daily expenses efficiently. Keep an eye on your spending, categorize your expenses, and gain valuable insights into your financial habits. Start tracking your expenses now to achieve better financial control and save more.</p>
+                    </div>
+                    <div class="overview-image">
+                        <img src="calculator.png" alt="Calculator Image">
+                    </div>
+                </div>
+            </section>
+
+            <section id="expense-section" class="form-section content-section">
+                <h2>Expense Tracker</h2>
+                <div id="add-expense-form">
+                    <form id="expense-form">
+                        <div class="form-group">
+                            <label for="expense-date">Date:</label>
+                            <input type="date" id="expense-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expense-amount">Amount:</label>
+                            <input type="number" id="expense-amount" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expense-category">Category:</label>
+                            <select id="expense-category" required>
+                                <option value="Food">Food</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Health">Health</option>
+                                <option value="Rent">Rent</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="expense-description">Description:</label>
+                            <input type="text" id="expense-description">
+                        </div>
+                        <div class="form-group">
+                            <label for="expense-currency">Currency:</label>
+                            <select id="expense-currency">
+                                <option value="INR">INR</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                        </div>
+                        <button type="submit">Add Expense</button>
+                    </form>
+                </div>
+
+                <div id="expense-list-section">
+                    <h3>Expenses</h3>
+                    <ul id="expense-list"></ul>
+                </div>
+
+                <div id="expense-summary">
+                    <h3>Summary</h3>
+                    <div>Total Spending: ₹<span id="total-spending">0.00</span></div>
+                </div>
+            </section>
+
+            <section id="charts-section" class="form-section content-section">
+                <h2>Spending Charts</h2>
+                <canvas id="category-chart"></canvas>
+                <canvas id="time-chart"></canvas>
+            </section>
+
+            <section id="recurring-expenses-section" class="form-section content-section">
+                <h2>Recurring Expenses</h2>
+                <form id="recurring-expense-form">
+                    <div class="form-group">
+                        <label for="recurring-expense-description">Description:</label>
+                        <input type="text" id="recurring-expense-description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="recurring-expense-amount">Amount:</label>
+                        <input type="number" id="recurring-expense-amount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="recurring-expense-interval">Interval:</label>
+                        <select id="recurring-expense-interval">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    <button type="submit">Add Recurring Expense</button>
+                </form>
+            </section>
+
+            <section id="budgeting-section" class="form-section content-section">
+                <h2>Budgeting</h2>
+                <form id="budget-form">
+                    <div class="form-group">
+                        <label for="budget-category">Category:</label>
+                        <select id="budget-category">
+                            <option value="Food">Food</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Health">Health</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget-amount">Amount:</label>
+                        <input type="number" id="budget-amount" step="0.01" required>
+                    </div>
+                    <button type="submit">Set Budget</button>
+                </form>
+                <div id="budget-notification"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Expense Tracker. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
